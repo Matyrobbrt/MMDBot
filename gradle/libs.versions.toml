@@ -35,6 +35,7 @@ typetools = "0.6.3"
 javadocapi = "21ad5c1759"
 commons-io = "2.11.0"
 immutables = "2.9.0-rc1"
+picocli = "4.6.3"
 
 [libraries]
 # jda = { module = "net.dv8tion:JDA", version.ref = "jda" }
@@ -42,6 +43,7 @@ immutables = "2.9.0-rc1"
 jda = { module = "com.github.xirado:JDA", version.ref = "jda" }
 chewtils = { module = "pw.chew:jda-chewtils", version.ref = "chewtils" }
 chewtils-command = { module = "pw.chew:jda-chewtils-command", version.ref = "chewtils" }
+
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
@@ -51,11 +53,14 @@ flyway = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 discord4j = { module = "com.discord4j:discord4j-core", version.ref = "discord4j" }
+reflections = { module = "org.reflections:reflections", version.ref = "reflections" }
+
 graal = { module = "org.graalvm.js:js", version.ref = "graal" }
 graal-scriptengine = { module = "org.graalvm.js:js-scriptengine", version.ref = "graal" }
-reflections = { module = "org.reflections:reflections", version.ref = "reflections" }
+
 jdbi-core = { module = "org.jdbi:jdbi3-core", version.ref = "jdbi" }
 jdbi-sqlobject = { module = "org.jdbi:jdbi3-sqlobject", version.ref = "jdbi" }
+
 junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 dotenv = {module = "io.github.cdimascio:dotenv-java", version.ref = "dotenv"}
 slf4japi = {module = "org.slf4j:slf4j-api", version.ref = "slf4j"}
@@ -69,5 +74,9 @@ asmutils = {module = "io.github.matyrobbrt:asmutils", version.ref = "asmutils"}
 typetools = {module = "net.jodah:typetools", version.ref = "typetools"}
 javadocapi = { module = "com.github.I-Al-Istannen:JavadocApi", version.ref = "javadocapi" }
 commons-io = { module = "commons-io:commons-io", version.ref = "commons-io" }
+
 immutables-value = { module = "org.immutables:value", version.ref = "immutables" }
 immutables-builder = { module = "org.immutables:builder", version.ref = "immutables" }
+
+# PicoCli
+picocli = { module = "info.picocli:picocli", version.ref = "picocli" }

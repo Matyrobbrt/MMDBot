@@ -18,21 +18,12 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package com.mcmoddev.updatinglauncher;
+package com.mcmoddev.updatinglauncher.agent;
 
-import java.rmi.Remote;
-import java.rmi.RemoteException;
-import java.util.HashMap;
+public class Properties {
 
-public interface ProcessConnector extends Remote {
+    private static final String PREFIX = "com.mcmoddev.updatinglauncher.";
 
-    int PORT = 6291;
-    String BASE_NAME = "ULProcessConnector";
+    public static final String JAR_PATH = PREFIX + "jar";
 
-    ThreadInfo[] getThreads() throws RemoteException;
-    double getCPULoad() throws RemoteException;
-    MemoryUsage getMemoryUsage() throws RemoteException;
-
-    // Profiling
-    HashMap<String, Object> getProcessInfoProfiling() throws RemoteException;
 }

@@ -20,6 +20,8 @@
  */
 package com.mcmoddev.updatinglauncher;
 
+import com.mcmoddev.updatinglauncher.agent.ProcessConnector;
+import com.mcmoddev.updatinglauncher.agent.Properties;
 import com.mcmoddev.updatinglauncher.github.Release;
 import com.mcmoddev.updatinglauncher.github.UpdateChecker;
 import org.checkerframework.checker.nullness.qual.NonNull;

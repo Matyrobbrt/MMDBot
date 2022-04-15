@@ -18,9 +18,21 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package com.mcmoddev.updatinglauncher;
+package com.mcmoddev.updatinglauncher.agent;
 
-import java.io.Serializable;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.HashMap;
 
-public record MemoryUsage(long totalMemory, long freeMemory) implements Serializable {
+public interface ProcessConnector extends Remote {
+
+    int PORT = 6291;
+    String BASE_NAME = "ULProcessConnector";
+
+    ThreadInfo[] getThreads() throws RemoteException;
+    double getCPULoad() throws RemoteException;
+    MemoryUsage getMemoryUsage() throws RemoteException;
+
+    // Profiling
+    HashMap<String, Object> getProcessInfoProfiling() throws RemoteException;
 }

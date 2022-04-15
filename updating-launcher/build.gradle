@@ -22,11 +22,15 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 sourceSets {
     agent {}
     launcher {}
+    cli
 }
 
 configurations {
     shade
     launcherImplementation.extendsFrom(shade)
+
+    cli
+    cliImplementation.extendsFrom(cli)
 }
 
 def agentClass = "com.mcmoddev.updatinglauncher.agent.Agent"
@@ -60,9 +64,15 @@ license {
     }
 }
 
+def agentClassesPattern = 'com/mcmoddev/updatinglauncher/agent/**/*.class'
+
 dependencies {
     shade sourceSets.main.output
     agentImplementation sourceSets.main.output
+    cli sourceSets.main.output
+
+    // Cli
+    cli libs.picocli
 
     shade libs.gson
     shade libs.logback
@@ -75,7 +85,9 @@ dependencies {
 }
 
 tasks.create("agentJar", Jar).configure {
-    from sourceSets.main.output
+    from(sourceSets.main.output) {
+        include agentClassesPattern
+    }
     from sourceSets.agent.output
     classifier("agent")
     group("build")

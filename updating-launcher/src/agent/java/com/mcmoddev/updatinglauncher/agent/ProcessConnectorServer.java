@@ -20,12 +20,6 @@
  */
 package com.mcmoddev.updatinglauncher.agent;
 
-import com.mcmoddev.updatinglauncher.MemoryUsage;
-import com.mcmoddev.updatinglauncher.ProcessConnector;
-import com.mcmoddev.updatinglauncher.Properties;
-import com.mcmoddev.updatinglauncher.ThreadInfo;
-
-import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;

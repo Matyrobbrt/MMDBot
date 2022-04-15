@@ -20,8 +20,6 @@
  */
 package com.mcmoddev.updatinglauncher.agent;
 
-import com.mcmoddev.updatinglauncher.ProcessConnector;
-
 import java.lang.instrument.Instrumentation;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -51,7 +49,11 @@ public final class Agent {
         System.out.println(colour("Starting RMI on port " + ProcessConnector.PORT + " with name '" + agentArgs + "'"));
         try {
             System.setProperty("java.rmi.server.hostname", "127.0.0.1");
-            registry = LocateRegistry.createRegistry(ProcessConnector.PORT);
+            try {
+                registry = LocateRegistry.createRegistry(ProcessConnector.PORT);
+            } catch (RemoteException ignored) {
+                registry = LocateRegistry.getRegistry(ProcessConnector.PORT);
+            }
             server = new ProcessConnectorServer();
 
             final ProcessConnector stub = (ProcessConnector) UnicastRemoteObject.exportObject(server, ProcessConnector.PORT);
@@ -59,7 +61,7 @@ public final class Agent {
 
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
                 try {
-                    registry.unbind(ProcessConnector.BASE_NAME);
+                    registry.unbind(agentArgs);
                 } catch (RemoteException | NotBoundException e) {
                     e.printStackTrace();
                 }
